@@ -1,0 +1,55 @@
+<section id="assessment" class="content-bg max-w-6xl mx-auto px-6 py-24">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4">
+        <div>
+            <span class="text-xs font-semibold tracking-widest uppercase text-[#7A9283]">Model-Based Screening</span>
+            <h2 class="serif text-3xl md:text-4xl text-[#23332A] mt-2">AI Mental Health Risk Check</h2>
+        </div>
+        <p class="text-[#576F60] font-light max-w-md">
+            
+        </p>
+    </div>
+
+    <div class="grid lg:grid-cols-[1.4fr_0.8fr] gap-8">
+        <form method="post" class="border border-[#E8E3DD] rounded-2xl bg-white p-8 shadow-sm">
+            {% csrf_token %}
+            <input type="hidden" name="form_type" value="risk">
+
+            <div class="grid md:grid-cols-2 gap-5">
+                {% for field in risk_form %}
+                    <label class="block">
+                        <span class="mb-2 block text-sm font-medium text-[#3B5848]">{{ field.label }}</span>
+                        {{ field }}
+                        {% if field.errors %}
+                            <span class="mt-1 block text-xs text-red-700">{{ field.errors|striptags }}</span>
+                        {% endif %}
+                    </label>
+                {% endfor %}
+            </div>
+
+            <button type="submit" class="mt-8 bg-[#3B5848] text-white px-8 py-3.5 rounded-xl text-sm font-medium hover:bg-[#2C3E35] transition shadow-md">
+                Predict Risk
+            </button>
+        </form>
+
+        <aside class="border border-[#E8E3DD] rounded-2xl bg-[#FBF9F6] p-8 shadow-sm">
+            {% if prediction_result %}
+                <p class="text-xs font-semibold tracking-widest uppercase text-[#7A9283] mb-3">Prediction Result</p>
+                <p class="serif text-4xl text-[#23332A] mb-2">{{ prediction_result.risk_level }}</p>
+                <p class="text-[#576F60] font-light mb-6">{{ prediction_result.summary }}</p>
+                <div class="h-3 rounded-full bg-[#E6ECE8] overflow-hidden mb-3">
+                    <div class="h-full bg-[#D4A373]" style="width: {{ prediction_result.model_confidence }}%"></div>
+                </div>
+                <p class="text-sm font-medium text-[#3B5848]">{{ prediction_result.model_confidence }}% model confidence</p>
+                <p class="mt-6 text-xs leading-relaxed text-[#7A9283]">
+                    This is a screening estimate from a student project model, not a diagnosis. If someone may be in immediate danger, use the crisis support section below.
+                </p>
+            {% else %}
+                <p class="text-xs font-semibold tracking-widest uppercase text-[#7A9283] mb-3">Waiting For Input</p>
+                <p class="serif text-3xl text-[#23332A] mb-3">Complete the form to run your model.</p>
+                <p class="text-[#576F60] font-light">
+                    The prediction service loads the saved model, scaler, feature list, and label encoders from the existing <span class="font-medium">models</span> folder.
+                </p>
+            {% endif %}
+        </aside>
+    </div>
+</section>

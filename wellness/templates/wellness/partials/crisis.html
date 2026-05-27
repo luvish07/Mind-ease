@@ -1,0 +1,16 @@
+<section id="crisis" class="max-w-4xl mx-auto px-6 my-16">
+    <div class="bg-[#D4A373] text-white rounded-3xl p-8 md:p-12 text-center space-y-6 shadow-xl">
+        <h2 class="serif text-3xl font-light">In Crisis? You Deserve Support Right Now.</h2>
+        <p class="text-white/90 font-light max-w-xl mx-auto text-sm md:text-base">
+            If you are feeling overwhelmed, hopeless, or having thoughts of self-harm, please reach out immediately. Free, confidential support is available 24/7.
+        </p>
+        <div class="flex flex-wrap justify-center gap-6 pt-2">
+            {% for item in crisis_contacts %}
+                <div class="bg-white/10 px-6 py-3 rounded-xl backdrop-blur-sm">
+                    <p class="text-xs uppercase tracking-wider text-white/70">{{ item.region }}</p>
+                    <p class="text-xl font-semibold">{{ item.contact }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

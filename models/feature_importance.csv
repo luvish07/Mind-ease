@@ -1,0 +1,12 @@
+feature,importance
+sleep_hours,0.28822824211099757
+daily_social_media_hours,0.2829952229732654
+sleep_quality_encoded,0.1703107214753655
+academic_performance,0.06793128543645031
+screen_time_before_sleep,0.04438021527690642
+physical_activity,0.03984106827259157
+age,0.031120446725309555
+digital_wellbeing_flag_encoded,0.021335101570115936
+gender_encoded,0.019940784093250393
+platform_usage_encoded,0.019475157837776712
+social_interaction_level_encoded,0.014441754227970645

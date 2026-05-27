@@ -1,0 +1,18 @@
+<section id="about" class="content-bg py-16">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <h2 class="serif text-3xl md:text-4xl text-[#23332A] mb-4">Understanding the Landscape</h2>
+            <p class="text-[#576F60] font-light">Struggling with mental health is incredibly common. Raising awareness breaks the stigma and opens doors to healing.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 text-center">
+            {% for item in stats %}
+                <article class="bg-[#FBF9F6] p-8 rounded-2xl shadow-sm">
+                    <p class="serif text-5xl font-light text-[#3B5848] mb-2">{{ item.value }}</p>
+                    <p class="text-sm font-medium uppercase tracking-wider text-[#7A9283] mb-3">{{ item.label }}</p>
+                    <p class="text-[#576F60] font-light text-sm">{{ item.description }}</p>
+                </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>

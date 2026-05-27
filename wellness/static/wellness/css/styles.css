@@ -1,0 +1,28 @@
+body {
+    font-family: "Inter", sans-serif;
+    background-image: url("../images/hero-wellness.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    padding: 1rem;
+}
+
+.serif {
+    font-family: "Playfair Display", serif;
+}
+
+.content-bg {
+    background-color: rgba(251, 249, 246, 0.9);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.duration-4000 {
+    transition-duration: 4000ms;
+}
+
+section {
+    margin-bottom: 4rem;
+}

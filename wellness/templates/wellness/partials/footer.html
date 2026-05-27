@@ -1,0 +1,14 @@
+<footer id="resources" class="content-bg border-t border-[#E8E3DD] py-8 text-xs text-[#7A9283]">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div class="text-center md:text-left">
+            <p class="serif text-lg font-bold text-[#3B5848] mb-1">mindease.</p>
+            <p>A concept project built to bring peace and awareness.</p>
+        </div>
+        <div class="flex flex-wrap justify-center gap-6">
+            {% for resource in resources %}
+                <a href="{{ resource.url }}" target="_blank" rel="noopener" class="hover:underline">{{ resource.name }}</a>
+            {% endfor %}
+        </div>
+        <p>&copy; 2026 Luvish Kumar Lokye</p>
+    </div>
+</footer>

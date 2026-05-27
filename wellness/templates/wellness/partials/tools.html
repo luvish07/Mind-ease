@@ -1,0 +1,50 @@
+<section id="tools" class="content-bg max-w-6xl mx-auto px-6 py-16">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-4">
+        <div>
+            <span class="text-xs font-semibold tracking-widest uppercase text-[#7A9283]">Take a Moment</span>
+            <h2 class="serif text-3xl md:text-4xl text-[#23332A] mt-2">Interactive Grounding Tools</h2>
+        </div>
+        <p class="text-[#576F60] font-light max-w-md">
+            Simple, accessible practices designed to bring your focus back to the present moment when things feel overwhelming.
+        </p>
+    </div>
+
+    {% if messages %}
+        <div class="mb-6 space-y-2">
+            {% for message in messages %}
+                <p class="rounded-xl bg-[#E6ECE8] px-4 py-3 text-sm font-medium text-[#3B5848]">{{ message }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <div class="grid md:grid-cols-2 gap-8">
+        <article class="border border-[#E8E3DD] p-8 rounded-2xl bg-white hover:shadow-md transition group">
+            <div class="w-12 h-12 bg-[#F5EBE0] rounded-xl flex items-center justify-center text-[#D4A373] mb-6 font-semibold group-hover:scale-110 transition">
+                Breathe
+            </div>
+            <h3 class="serif text-xl text-[#23332A] mb-2">Guided Box Breathing</h3>
+            <p class="text-[#576F60] font-light text-sm mb-6">A 4-second cycle used by high-stress professionals to calm the nervous system instantly.</p>
+            <button type="button" data-breath-button class="inline-flex items-center text-sm font-medium text-[#3B5848] hover:underline">
+                Start Exercise <span class="ml-2">-&gt;</span>
+            </button>
+            <div data-breath-circle class="w-0 h-0 bg-[#E6ECE8] rounded-full mx-auto mt-4 transition-all duration-4000 ease-in-out flex items-center justify-center text-xs text-[#3B5848]"></div>
+        </article>
+
+        <article class="border border-[#E8E3DD] p-8 rounded-2xl bg-white hover:shadow-md transition group">
+            <div class="w-12 h-12 bg-[#E6ECE8] rounded-xl flex items-center justify-center text-[#3B5848] mb-6 font-semibold group-hover:scale-110 transition">
+                Note
+            </div>
+            <h3 class="serif text-xl text-[#23332A] mb-2">Daily Gratitude Check-In</h3>
+            <p class="text-[#576F60] font-light text-sm mb-6">Reframing your focus helps rewire neural pathways toward a healthier mindset.</p>
+            <form method="post" class="flex gap-2">
+                {% csrf_token %}
+                <input type="hidden" name="form_type" value="gratitude">
+                {{ gratitude_form.gratitude }}
+                <button type="submit" class="bg-[#3B5848] text-white text-sm px-4 py-2 rounded-xl hover:bg-[#2C3E35]">Save</button>
+            </form>
+            {% if latest_gratitude %}
+                <p class="mt-4 text-sm text-[#576F60]">Today's note: <span class="font-medium text-[#3B5848]">{{ latest_gratitude }}</span></p>
+            {% endif %}
+        </article>
+    </div>
+</section>
