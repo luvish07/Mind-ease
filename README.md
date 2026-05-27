@@ -19,7 +19,7 @@ Here are a couple of screenshots of the application in action:
 _The main interface of the wellness screening tool._
 
 ![Screenshot of the prediction result](screenshots/Screenshot%202026-05-27%20213152.png)
-_An example of a risk prediction result._
+_Our ai model is loaded here._
 
 ## Project Structure
 
